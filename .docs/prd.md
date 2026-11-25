@@ -142,11 +142,11 @@ Props descem do `ChatScreen`. Sem contexto e sem store.
 
 Ordem de implementação. Cada tarefa deixa a tela utilizável um passo além da anterior.
 
-### 1. Tipos da mensagem
+### 1. Tipos da mensagem — feito
 
 Criar `src/types/message.ts` com `Author` e `Message`, usando `type`.
 
-### 2. Estado e casca da tela
+### 2. Estado e casca da tela — feito
 
 Criar `ChatScreen` com `messages`, `draft` e `author`. Montar a página em altura cheia, fundo `bg-amber-100`, coluna `max-w-2xl` centralizada, título “Chat”, região flexível do histórico e um espaço reservado ao card embaixo. O `App` passa a renderizar só essa tela.
 
