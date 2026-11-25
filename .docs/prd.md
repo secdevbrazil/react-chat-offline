@@ -154,7 +154,7 @@ Criar `ChatScreen` com `messages`, `draft` e `author`. Montar a página em altur
 
 Criar `MessageBubble` e `MessageList`. Sem mensagens, mostrar “Nenhuma mensagem ainda”. Com mensagens, renderizar avatar, rótulo e texto: usuário à direita em branco, robô à esquerda em `bg-violet-100`. Preservar quebras de linha. Para ver a lista antes do envio existir, dá para popular o estado com duas mensagens fixas e removê-las na tarefa 6.
 
-### 4. Card do input
+### 4. Card do input — feito
 
 Criar `Composer`: card branco, `textarea` que cresce até cerca de 6 linhas e depois rola, placeholder “Escreva uma mensagem”. Enter só insere quebra de linha. Botão “Enviar” à direita, desabilitado quando `draft.trim()` está vazio. Ligar o valor do campo a `draft`.
 

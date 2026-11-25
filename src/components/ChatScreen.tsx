@@ -1,5 +1,6 @@
 import { useState } from "react"
 import type { Author, Message } from "../types/message"
+import { Composer } from "./Composer"
 import { MessageList } from "./MessageList"
 
 const INITIAL_MESSAGES: Message[] = [
@@ -17,11 +18,10 @@ const INITIAL_MESSAGES: Message[] = [
 
 export function ChatScreen() {
   const [messages] = useState<Message[]>(INITIAL_MESSAGES)
-  const [draft] = useState("")
+  const [draft, setDraft] = useState("")
   const [author] = useState<Author>("user")
 
-  // O rascunho e o autor passam a aparecer no card nas próximas fases.
-  void draft
+  // O autor passa a aparecer no card na próxima fase.
   void author
 
   return (
@@ -34,7 +34,7 @@ export function ChatScreen() {
         <MessageList messages={messages} />
 
         <div className="shrink-0 pb-4">
-          <div className="min-h-16 rounded-2xl border border-stone-300 bg-white" />
+          <Composer draft={draft} onDraftChange={setDraft} />
         </div>
       </div>
     </main>
