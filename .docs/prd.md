@@ -162,7 +162,7 @@ Criar `Composer`: card branco, `textarea` que cresce até cerca de 6 linhas e de
 
 Criar `AuthorToggle` no lado esquerdo do card. Ícone de pessoa ou robô, `aria-pressed` e nome acessível. Alternar `author` entre `"user"` e `"robot"`. No modo robô, o card usa borda `border-violet-500`; no modo usuário, borda `border-stone-300`.
 
-### 6. Envio
+### 6. Envio — feito
 
 No clique de “Enviar”, se houver texto útil, acrescentar `{ id, author, text }` ao fim de `messages`, limpar `draft` e manter `author`. Tirar mensagens fixas da tarefa 3, se ainda estiverem no estado inicial. A lista rola até a última mensagem após o envio.
 

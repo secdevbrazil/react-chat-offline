@@ -3,26 +3,26 @@ import type { Author, Message } from "../types/message"
 import { Composer } from "./Composer"
 import { MessageList } from "./MessageList"
 
-const INITIAL_MESSAGES: Message[] = [
-  {
-    id: "sample-user-1",
-    author: "user",
-    text: "Olá!\nTudo bem por aí?",
-  },
-  {
-    id: "sample-robot-1",
-    author: "robot",
-    text: "Tudo ótimo! Como posso ajudar hoje?",
-  },
-]
-
 export function ChatScreen() {
-  const [messages] = useState<Message[]>(INITIAL_MESSAGES)
+  const [messages, setMessages] = useState<Message[]>([])
   const [draft, setDraft] = useState("")
   const [author, setAuthor] = useState<Author>("user")
 
   const handleToggleAuthor = () => {
     setAuthor((current) => (current === "user" ? "robot" : "user"))
+  }
+
+  const handleSend = () => {
+    if (draft.trim().length === 0) return
+
+    const newMessage: Message = {
+      id: crypto.randomUUID(),
+      author,
+      text: draft,
+    }
+
+    setMessages((current) => [...current, newMessage])
+    setDraft("")
   }
 
   return (
@@ -40,6 +40,7 @@ export function ChatScreen() {
             author={author}
             onDraftChange={setDraft}
             onToggleAuthor={handleToggleAuthor}
+            onSend={handleSend}
           />
         </div>
       </div>

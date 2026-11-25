@@ -7,7 +7,7 @@ type ComposerProps = {
   author: Author
   onDraftChange: (value: string) => void
   onToggleAuthor: () => void
-  onSend?: () => void
+  onSend: () => void
 }
 
 export function Composer({
