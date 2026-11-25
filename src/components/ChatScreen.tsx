@@ -1,8 +1,22 @@
 import { useState } from "react"
 import type { Author, Message } from "../types/message"
+import { MessageList } from "./MessageList"
+
+const INITIAL_MESSAGES: Message[] = [
+  {
+    id: "sample-user-1",
+    author: "user",
+    text: "Olá!\nTudo bem por aí?",
+  },
+  {
+    id: "sample-robot-1",
+    author: "robot",
+    text: "Tudo ótimo! Como posso ajudar hoje?",
+  },
+]
 
 export function ChatScreen() {
-  const [messages] = useState<Message[]>([])
+  const [messages] = useState<Message[]>(INITIAL_MESSAGES)
   const [draft] = useState("")
   const [author] = useState<Author>("user")
 
@@ -17,11 +31,7 @@ export function ChatScreen() {
           <h1 className="text-xl font-semibold">Chat</h1>
         </header>
 
-        <section aria-label="Histórico" className="min-h-0 flex-1 overflow-y-auto">
-          {messages.map((message) => (
-            <div key={message.id}>{message.text}</div>
-          ))}
-        </section>
+        <MessageList messages={messages} />
 
         <div className="shrink-0 pb-4">
           <div className="min-h-16 rounded-2xl border border-stone-300 bg-white" />

@@ -150,7 +150,7 @@ Criar `src/types/message.ts` com `Author` e `Message`, usando `type`.
 
 Criar `ChatScreen` com `messages`, `draft` e `author`. Montar a página em altura cheia, fundo `bg-amber-100`, coluna `max-w-2xl` centralizada, título “Chat”, região flexível do histórico e um espaço reservado ao card embaixo. O `App` passa a renderizar só essa tela.
 
-### 3. Lista e bolha
+### 3. Lista e bolha — feito
 
 Criar `MessageBubble` e `MessageList`. Sem mensagens, mostrar “Nenhuma mensagem ainda”. Com mensagens, renderizar avatar, rótulo e texto: usuário à direita em branco, robô à esquerda em `bg-violet-100`. Preservar quebras de linha. Para ver a lista antes do envio existir, dá para popular o estado com duas mensagens fixas e removê-las na tarefa 6.
 
