@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, type KeyboardEvent } from "react"
 import type { Author } from "../types/message"
 import { AuthorToggle } from "./AuthorToggle"
 
@@ -29,6 +29,17 @@ export function Composer({
     textarea.style.height = `${textarea.scrollHeight}px`
   }, [draft])
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) {
+      return
+    }
+
+    event.preventDefault()
+    if (canSend) {
+      onSend()
+    }
+  }
+
   return (
     <div
       className={`flex items-end gap-2 rounded-2xl border-2 bg-white p-2.5 transition-colors ${
@@ -42,6 +53,7 @@ export function Composer({
         rows={1}
         value={draft}
         onChange={(event) => onDraftChange(event.target.value)}
+        onKeyDown={handleKeyDown}
         placeholder="Escreva uma mensagem"
         aria-label="Mensagem"
         className="max-h-36 min-h-9 flex-1 resize-none overflow-y-auto border-0 bg-transparent px-1.5 py-1.5 text-sm leading-relaxed text-stone-900 placeholder:text-stone-400 focus:outline-none"
