@@ -166,6 +166,6 @@ Criar `AuthorToggle` no lado esquerdo do card. Ícone de pessoa ou robô, `aria-
 
 No clique de “Enviar”, se houver texto útil, acrescentar `{ id, author, text }` ao fim de `messages`, limpar `draft` e manter `author`. Tirar mensagens fixas da tarefa 3, se ainda estiverem no estado inicial. A lista rola até a última mensagem após o envio.
 
-### 7. Revisão visual da coluna
+### 7. Revisão visual da coluna — feito
 
 Conferir em janela larga e estreita: coluna centralizada, card sempre no fim da área visível, histórico rolando por cima dele, bolhas até cerca de 80% da coluna, estado vazio centralizado e botão enviar apagado quando desabilitado.

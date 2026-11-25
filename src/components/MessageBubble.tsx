@@ -22,7 +22,7 @@ export function MessageBubble({ message }: MessageBubbleProps) {
       </div>
 
       <div
-        className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-stone-900 shadow-xs ${
+        className={`min-w-0 max-w-[80%] rounded-2xl px-4 py-2.5 text-stone-900 shadow-xs ${
           isUser ? "bg-white" : "bg-violet-100"
         }`}
       >
