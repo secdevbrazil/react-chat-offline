@@ -19,10 +19,11 @@ const INITIAL_MESSAGES: Message[] = [
 export function ChatScreen() {
   const [messages] = useState<Message[]>(INITIAL_MESSAGES)
   const [draft, setDraft] = useState("")
-  const [author] = useState<Author>("user")
+  const [author, setAuthor] = useState<Author>("user")
 
-  // O autor passa a aparecer no card na próxima fase.
-  void author
+  const handleToggleAuthor = () => {
+    setAuthor((current) => (current === "user" ? "robot" : "user"))
+  }
 
   return (
     <main className="flex h-dvh min-h-dvh justify-center bg-amber-100 text-stone-900">
@@ -34,7 +35,12 @@ export function ChatScreen() {
         <MessageList messages={messages} />
 
         <div className="shrink-0 pb-4">
-          <Composer draft={draft} onDraftChange={setDraft} />
+          <Composer
+            draft={draft}
+            author={author}
+            onDraftChange={setDraft}
+            onToggleAuthor={handleToggleAuthor}
+          />
         </div>
       </div>
     </main>

@@ -158,7 +158,7 @@ Criar `MessageBubble` e `MessageList`. Sem mensagens, mostrar “Nenhuma mensage
 
 Criar `Composer`: card branco, `textarea` que cresce até cerca de 6 linhas e depois rola, placeholder “Escreva uma mensagem”. Enter só insere quebra de linha. Botão “Enviar” à direita, desabilitado quando `draft.trim()` está vazio. Ligar o valor do campo a `draft`.
 
-### 5. Toggle de autor
+### 5. Toggle de autor — feito
 
 Criar `AuthorToggle` no lado esquerdo do card. Ícone de pessoa ou robô, `aria-pressed` e nome acessível. Alternar `author` entre `"user"` e `"robot"`. No modo robô, o card usa borda `border-violet-500`; no modo usuário, borda `border-stone-300`.
 

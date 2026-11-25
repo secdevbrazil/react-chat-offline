@@ -1,14 +1,25 @@
 import { useEffect, useRef } from "react"
+import type { Author } from "../types/message"
+import { AuthorToggle } from "./AuthorToggle"
 
 type ComposerProps = {
   draft: string
+  author: Author
   onDraftChange: (value: string) => void
+  onToggleAuthor: () => void
   onSend?: () => void
 }
 
-export function Composer({ draft, onDraftChange, onSend }: ComposerProps) {
+export function Composer({
+  draft,
+  author,
+  onDraftChange,
+  onToggleAuthor,
+  onSend,
+}: ComposerProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const canSend = draft.trim().length > 0
+  const isRobot = author === "robot"
 
   useEffect(() => {
     const textarea = textareaRef.current
@@ -19,7 +30,13 @@ export function Composer({ draft, onDraftChange, onSend }: ComposerProps) {
   }, [draft])
 
   return (
-    <div className="flex items-end gap-2 rounded-2xl border border-stone-300 bg-white p-2.5">
+    <div
+      className={`flex items-end gap-2 rounded-2xl border-2 bg-white p-2.5 transition-colors ${
+        isRobot ? "border-violet-500" : "border-stone-300"
+      }`}
+    >
+      <AuthorToggle author={author} onToggle={onToggleAuthor} />
+
       <textarea
         ref={textareaRef}
         rows={1}
